@@ -10,7 +10,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(5);
         return view('post.index', ['posts' => $posts]);
     }
 
@@ -28,6 +28,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $post = new Post();
+        $post->user_id = $request->user()->id;
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();

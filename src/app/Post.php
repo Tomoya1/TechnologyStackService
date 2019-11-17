@@ -14,4 +14,9 @@ class Post extends Model
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -12,6 +12,7 @@
                 <thead>
                 <tr>
                     <th>{{ __('ID') }}</th>
+                    <th>{{ __('投稿者名') }}</th>
                     <th>{{ __('タイトル') }}</th>
                     <th>{{ __('投稿内容') }}</th>
                 </tr>
@@ -22,6 +23,7 @@
                         <td>
                             <a href="{{ url('posts/'. $post->id) }}">{{ $post->id }}</a>
                         </td>
+                        <td>{{ $post->user->name }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->body }}</td>
                         <td>
@@ -35,5 +37,6 @@
                 </tbody>
             </table>
         </div>
+        {{ $posts->links() }}
     </div>
 @endsection
