@@ -1,5 +1,5 @@
 @php
-    $title = __('Users');
+    $title = __('ユーザ 一覧');
 @endphp
 @extends('../layouts/mylayout')
 
@@ -10,8 +10,8 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>{{ __('ID') }}</th>
                     <th>{{ __('Name') }}</th>
+                    <th>{{ __('Email') }}</th>
                 </tr>
                 </thead>
                 <tbody>

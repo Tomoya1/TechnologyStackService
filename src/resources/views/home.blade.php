@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@php
+    $title = 'home'
+@endphp
+@extends('layouts.mylayout')
+
 
 @section('content')
 <div class="container">
