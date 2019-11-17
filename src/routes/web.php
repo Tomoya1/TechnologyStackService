@@ -18,3 +18,12 @@ Route::get('users/{id}', 'UsersController@show');
 Route::get('users/{id}/edit', 'UsersController@edit');
 Route::put('users/{id}', 'UsersController@update');
 Route::delete('users/{id}', 'UsersController@destroy');
+
+// Postsの処理
+Route::get('posts', 'PostsController@index');
+Route::get('posts/create', 'PostsController@create');
+Route::get('posts/{id}', 'PostsController@show');
+Route::get('posts/{id}/edit', 'PostsController@edit');
+Route::post('posts', 'PostsController@store');
+Route::put('posts/{id}', 'PostsController@update');
+Route::delete('posts/{id}', 'PostsController@destroy');
