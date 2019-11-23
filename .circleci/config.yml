@@ -65,7 +65,7 @@ jobs:
             sudo -E docker-php-ext-install mysqli pdo_mysql && sudo -E docker-php-ext-enable mysqli pdo_mysql
       - run:
           command: |
-            cd src && php artisan migrate --env=testing --database=circle_test --force
+            cd src && php artisan migrate --env=testing --force
 
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
