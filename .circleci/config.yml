@@ -9,7 +9,12 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.3.5-fpm
       - image: circleci/mysql:5.7
-      
+        environment:
+          MYSQL_DATABASE: circle_test
+          MYSQL_USER: circleci
+          MYSQL_PASSWORD: password
+          MYSQL_HOST: 127.0.0.1
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -52,8 +57,15 @@ jobs:
             - node_modules
 
       # prepare the database
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
+      - run:
+          name: Install MySQL client (PHP)
+          command: |
+            sudo apt-get update
+            sudo apt-get install mysql-client
+            sudo -E docker-php-ext-install mysqli pdo_mysql && sudo -E docker-php-ext-enable mysqli pdo_mysql
+      - run:
+          command: |
+            cd src && php artisan migrate --env=testing --database=circle_test --force
 
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
