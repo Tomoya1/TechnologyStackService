@@ -83,7 +83,7 @@ jobs:
         - run:
             name: build image
             command: |
-              docker build -t ${ECR_DOMAIN}:$CIRCLE_SHA1 -t ${ECR_DOMAIN}:latest -f ./docker/php/
+              docker build -t ${ECR_DOMAIN}:$CIRCLE_SHA1 -t ${ECR_DOMAIN}:latest -f /docker/php/Dockerfile
         - run:
             name: Push docker image
             command: |
