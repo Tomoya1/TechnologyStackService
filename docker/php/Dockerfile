@@ -1,7 +1,7 @@
 FROM php:7.3-fpm-alpine
 LABEL maintainer "your-name"
 
-ARG TZ
+ARG TZ=Asia/Tokyo
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 
